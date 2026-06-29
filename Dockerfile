@@ -7,14 +7,14 @@ WORKDIR /app
 # Install supabase CLI globally
 RUN npm install -g supabase
 
-# Copy package manifests from supabase folder
-COPY package*.json ./
+# Copy package manifests from supabase folder first for caching
+COPY supabase/package*.json ./ 
 
 # Install dependencies
 RUN npm install --production
 
-# Copy the rest of the application code
-COPY . .
+# Copy the rest of the application code from supabase folder
+COPY supabase/. .
 
 # Expose port 8029
 EXPOSE 8029
