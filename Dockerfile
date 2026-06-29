@@ -12,4 +12,4 @@ COPY supabase/. .
 # Expose port 8029
 EXPOSE 8029
 
-CMD ["supabase", "functions", "serve", "--no-verify-jwt"]
+CMD ["supabase", "functions", "serve", "--no-verify-jwt", "--debug"]
